@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config(); // Initialize dotenv to load environment variables
 
 const defaultPort = 3000;
-// const routes = require('./routes');
+const routes = require('./routes');
 const port = process.env.PUBLIC_PORT || defaultPort;
 const connection = process.env.URI;
 
@@ -27,8 +27,7 @@ app.get('/ping', (req, res) => {
   res.send("Hello");
 });
 
-// const routes = require('./routes');
-// app.use(routes);
+app.use(routes);
 
 if (require.main === module) {
   app.listen(port, () => {
